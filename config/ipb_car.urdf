@@ -1,0 +1,101 @@
+<robot name="ipb_car">
+  <link name="ac_0">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="1.5707963267948966 0 0"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/basler_camera.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="hor/os_sensor">
+    <visual>
+      <origin xyz="0 0 -0.01" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/ouster.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="hor/os_sensor_to_ac_0" type="fixed">
+    <child link="hor/os_sensor"/>
+    <parent link="ac_0"/>
+    <origin rpy="1.8852689803193075 1.535885738967032 1.8962294517308202" xyz="0.35789150598188735 -0.0026187203000167907 0.6009225108932496"/>
+  </joint>
+  <link name="vert/os_sensor">
+    <visual>
+      <origin xyz="0 0 -0.01" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/ouster.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="vert/os_sensor_to_ac_0" type="fixed">
+    <child link="vert/os_sensor"/>
+    <parent link="ac_0"/>
+    <origin rpy="-3.103233005674321 0.005183257208288161 0.024523586312798554" xyz="0.28365554483208205 0.01917813552959656 0.5242793112149862"/>
+  </joint>
+  <link name="ac_1">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="1.5707963267948966 0 1.5707963267948966"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/basler_camera.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="ac_1_to_ac_0" type="fixed">
+    <child link="ac_1"/>
+    <parent link="ac_0"/>
+    <origin rpy="1.6042816258381305 0.008223447210840673 0.029865656432355628" xyz="0.27138899999999966 0.15574699999999989 0.6079849999999996"/>
+  </joint>
+  <link name="ac_2">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="1.5707963267948966 0 1.5707963267948966"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/basler_camera.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="ac_2_to_ac_0" type="fixed">
+    <child link="ac_2"/>
+    <parent link="ac_0"/>
+    <origin rpy="-1.5518730039751572 0.01594626669375443 0.0007965231662314283" xyz="0.2754949999999997 -0.16374399999999995 0.5982249999999996"/>
+  </joint>
+  <link name="ac_3">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="1.5707963267948966 0 1.5707963267948966"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/basler_camera.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="ac_3_to_ac_0" type="fixed">
+    <child link="ac_3"/>
+    <parent link="ac_0"/>
+    <origin rpy="-3.119057371862319 0.004345754326753104 0.012967280250059611" xyz="0.005536819999999994 -0.022248699999999996 1.2802300000000018"/>
+  </joint>
+  <link name="mount">
+    <visual>
+      <origin xyz="-0.03 0 -0.015" rpy="0 0 1.5707963267948966"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/car_mount.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="mount_to_hor/os_sensor" type="fixed">
+    <child link="mount"/>
+    <parent link="hor/os_sensor"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+  </joint>
+  <link name="car">
+    <visual>
+      <origin xyz="-0.03 0 -0.015" rpy="0 0 1.5707963267948966"/>
+      <geometry>
+        <mesh filename="package://ipb_car_hardware/meshes/passat.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="car_to_hor/os_sensor" type="fixed">
+    <child link="car"/>
+    <parent link="hor/os_sensor"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+  </joint>
+</robot>

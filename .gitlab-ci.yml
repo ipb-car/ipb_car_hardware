@@ -1,0 +1,18 @@
+# @file      .gitlab-ci.yml
+# @author    Ignacio Vizzo     [ivizzo@uni-bonn.de]
+#
+# Copyright (c) 2020 Ignacio Vizzo, all rights reserved
+image: gitlab.ipb.uni-bonn.de:4567/ipb-team/robots/ipb-car/docker_images/ros:latest
+stages:
+  - validate
+  - update
+
+check_models:
+  stage: validate
+  script:
+    - echo "TODO!!! Add CI for hardware and URDF verification models"
+
+include:
+  - project: 'ipb-team/robots/ipb-car/meta-workspace'
+    ref: master
+    file: '.templates/.gitlab-ci-submodule-update.yml'
